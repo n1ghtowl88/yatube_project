@@ -1,7 +1,4 @@
 # Yatube_project
-Social network for bloggers
-
-# Yatube_project
 ### Описание
 Social network for bloggers.
 ### Технологии
