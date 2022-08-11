@@ -12,15 +12,7 @@
       {{ group.description }}
     </p>
     {% for post in page_post_list %}
-      <ul>
-        <li>
-          Автор: {{ post.author.get_full_name }}
-        </li>
-        <li>
-          Дата публикации: {{ post.pub_date|date:"d E Y" }}
-        </li>
-      </ul>
-      <p>{{ post.text }}</p>
+      {% include "posts/includes/post_item.html" with post=post is_group_page=True %}
       {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
     <!-- под последним постом нет линии -->

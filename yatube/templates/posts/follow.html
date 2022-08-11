@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Это главная страница проекта Yatube{% endblock %}
+{% block title %}Избранные записи{% endblock %}
 {% block content %}
   <!-- класс py-5 создает отступы сверху и снизу блока -->
   <div class="container py-5">
-    {% include "posts/includes/switcher.html" with index=True %}
-    <h1>Последние обновления на сайте</h1>
+    {% include "posts/includes/switcher.html" with follow=True %}
+    <h1>Записи избранных авторов</h1>
     {% load cache %}
-    {% cache 20 index_page page_post_list %}
+    {% cache 20 follow_page page_post_list %}
       {% for post in page_post_list %}
         {% include "posts/includes/post_item.html" with post=post is_index_page=True %}
         {% if not forloop.last %}<hr>{% endif %}

@@ -37,12 +37,13 @@
         </ul>
       </aside>
       <article class="col-12 col-md-9">
-        <p>{{ post.text }}</p>
+        {% include 'posts/includes/post_item.html' with post=post is_post_page=True %}
         {% if post.author == user %}
         <a class="btn btn-primary" href="{% url 'posts:post_edit' post.id %}">
-              редактировать запись
+          редактировать запись
         </a>
         {% endif %}
+        {% include 'posts/includes/comments.html' with form=form comments=comments %}
       </article>
     </div>
   </div>
